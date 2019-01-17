@@ -1,0 +1,86 @@
+$border-color: #ced4da;
+$header-height: 50px;
+
+html, body, #root, #App {
+  height: 100%;
+}
+
+.loading {
+  height: 100%;
+  width: 100%;
+  color: #999;
+  text-align: center;
+  margin-top: 200px;
+}
+
+header {
+  position: fixed;
+  height: $header-height;
+  width: 100%;
+  background: #efefef;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  padding: 0 20px;
+  border-bottom: 1px solid $border-color;
+  z-index: 2000;
+}
+
+#content {
+  margin-top: $header-height;
+  height: calc(100% - #{$header-height});
+}
+
+.app-title {
+  white-space:nowrap;
+  line-height: $header-height;
+  margin-right: 20px;
+}
+
+#user-form {
+  flex-grow: 1;
+  .input-group,
+  .form-control { flex-grow: 1; }
+}
+
+.search-message,
+#content.error {
+  text-align: center;
+  width: 100%;
+  margin: 100px 0;
+}
+
+.col-header {
+  margin: 20px 0;
+}
+
+.repositories-container {
+  .card { margin-bottom: 10px; }
+  small {
+    color: #666;
+    margin-left: 15px;
+    svg { margin-right: 5px; }
+  }
+}
+
+@media (max-width: 576px) {
+  .organizations-container {
+      border-bottom: 1px solid $border-color;
+  }
+}
+
+@media (min-width: 576px) {
+  .repositories-container,
+  .organizations-container {
+    height: 100%;
+    position: fixed;
+    top: $header-height;
+    overflow: scroll;
+  }
+  .organizations-container {
+    left: 0px;
+    border-right: 1px solid $border-color;
+    background: #f6f6f6;
+  }
+  .repositories-container { right: 0px; }
+}
